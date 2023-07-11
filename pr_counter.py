@@ -22,20 +22,10 @@ args = parser.parse_args()
 date_since = datetime.strptime(args.date_since, '%Y-%m-%d')
 date_until = datetime.strptime(args.date_until, '%Y-%m-%d')
 
-# list of repos
-repos = [
-    "apache/flink-connector-pulsar",
-    "apache/pulsar",
-    "apache/pulsar-adapters",
-    "apache/pulsar-client-cpp",
-    "apache/pulsar-client-go",
-    "apache/pulsar-client-node",
-    "apache/pulsar-client-python",
-    "apache/pulsar-client-reactive",
-    "apache/pulsar-dotpulsar",
-    "apache/pulsar-helm-chart",
-    "apache/pulsar-manager"
-]
+# read the list of repositories from the file
+repos_file = "repositories.txt"
+with open(repos_file, 'r') as file:
+    repos = [line.strip() for line in file.readlines()]
 
 # global set of users
 users = set()
