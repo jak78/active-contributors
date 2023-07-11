@@ -10,7 +10,7 @@ This Python script fetches data from a list of GitHub repositories and counts th
 
 ## Installation
 
-1. Clone this repository or download the Python script.
+1. Clone this repository.
 2. Install the required Python packages using the following command:
 
 ```bash
