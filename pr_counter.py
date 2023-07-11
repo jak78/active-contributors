@@ -23,7 +23,19 @@ date_since = datetime.strptime(args.date_since, '%Y-%m-%d')
 date_until = datetime.strptime(args.date_until, '%Y-%m-%d')
 
 # list of repos
-repos = ["apache/pulsar"]
+repos = [
+    "apache/flink-connector-pulsar",
+    "apache/pulsar",
+    "apache/pulsar-adapters",
+    "apache/pulsar-client-cpp",
+    "apache/pulsar-client-go",
+    "apache/pulsar-client-node",
+    "apache/pulsar-client-python",
+    "apache/pulsar-client-reactive",
+    "apache/pulsar-dotpulsar",
+    "apache/pulsar-helm-chart",
+    "apache/pulsar-manager"
+]
 
 # global set of users
 users = set()
@@ -36,6 +48,7 @@ with open(filename, "w") as file:
         page = 1
         while True:
             url = f"https://api.github.com/repos/{repo}/pulls?state=all&sort=created&direction=desc&per_page=100&page={page}"
+            print(f"Fetching {url}")
             response = requests.get(url, headers=headers)
 
             # check the status of the request
